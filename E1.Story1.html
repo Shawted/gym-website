@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>FItera Gym/Transformation1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    .wow:first-child {
+      visibility: hidden;
+    }
+  </style>
+
+</head>
+<!-- Start Header  -->
+ <header>
+ 	 <div class="container">
+ 	 	<div class="logo">
+
+ 	 		  <a href="">FiT<span>era</span></a>
+ 	 	</div>
+ 	 	<a href="javascript:void(0)" class="ham-burger">
+ 	       <span></span>	
+ 	       <span></span>
+ 	 	</a>
+ 	 	<div class="nav">
+ 	 		<ul>
+ 	 			<li><a href="A.FITera%20(Home).html">Home</a></li>
+ 	 			<li><a href="B.About.html">About</a></li>
+ 	 			<li><a href="C.Services.html">Services</a></li>
+ 	 			<li><a href="D.Classes.html">Classes</a></li>
+                <li><a href="E.Transformations.html">Transformation</a></li>
+                <li><a href="F.Store.html">Store</a></li>
+ 	 			<li><a href="G.Prices.html">Price</a></li>
+ 	 			<li><a href="H.Contact.html">Contact</a></li>
+ 	 		</ul>
+ 	 	</div>
+ 	 </div>
+    </header>
+
+
+<body class="story1">
+    <style>
+* {box-sizing: border-box;}
+
+.img-comp-container {
+  position: relative;
+  height: 40px; /*should be the same height as the images*/
+   
+    margin-left: 10px;
+    margin-top: 90px;
+
+}
+
+.img-comp-img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow:hidden;
+}
+
+.img-comp-img img {
+  display:block;
+  vertical-align:middle;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index:9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+  width: 20px;
+  height: 20px;
+  background-color: #ff6700;
+  opacity: 0.7;
+  border-radius: 50%;
+    
+}
+     
+</style>
+<script>
+function initComparisons() {
+  var x, i;
+  /*find all elements with an "overlay" class:*/
+  x = document.getElementsByClassName("img-comp-overlay");
+  for (i = 0; i < x.length; i++) {
+    /*once for each "overlay" element:
+    pass the "overlay" element as a parameter when executing the compareImages function:*/
+    compareImages(x[i]);
+  }
+  function compareImages(img) {
+    var slider, img, clicked = 0, w, h;
+    /*get the width and height of the img element*/
+    w = img.offsetWidth;
+    h = img.offsetHeight;
+    /*set the width of the img element to 50%:*/
+    img.style.width = (w / 2) + "px";
+    /*create slider:*/
+    slider = document.createElement("DIV");
+    slider.setAttribute("class", "img-comp-slider");
+    /*insert slider*/
+    img.parentElement.insertBefore(slider, img);
+    /*position the slider in the middle:*/
+    slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+    slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+    /*execute a function when the mouse button is pressed:*/
+    slider.addEventListener("mousedown", slideReady);
+    /*and another function when the mouse button is released:*/
+    window.addEventListener("mouseup", slideFinish);
+    /*or touched (for touch screens:*/
+    slider.addEventListener("touchstart", slideReady);
+    /*and released (for touch screens:*/
+    window.addEventListener("touchend", slideFinish);
+    function slideReady(e) {
+      /*prevent any other actions that may occur when moving over the image:*/
+      e.preventDefault();
+      /*the slider is now clicked and ready to move:*/
+      clicked = 1;
+      /*execute a function when the slider is moved:*/
+      window.addEventListener("mousemove", slideMove);
+      window.addEventListener("touchmove", slideMove);
+    }
+    function slideFinish() {
+      /*the slider is no longer clicked:*/
+      clicked = 0;
+    }
+    function slideMove(e) {
+      var pos;
+      /*if the slider is no longer clicked, exit this function:*/
+      if (clicked == 0) return false;
+      /*get the cursor's x position:*/
+      pos = getCursorPos(e)
+      /*prevent the slider from being positioned outside the image:*/
+      if (pos < 0) pos = 0;
+      if (pos > w) pos = w;
+      /*execute a function that will resize the overlay image according to the cursor:*/
+      slide(pos);
+    }
+    function getCursorPos(e) {
+      var a, x = 0;
+      e = e || window.event;
+      /*get the x positions of the image:*/
+      a = img.getBoundingClientRect();
+      /*calculate the cursor's x coordinate, relative to the image:*/
+      x = e.pageX - a.left;
+      /*consider any page scrolling:*/
+      x = x - window.pageXOffset;
+      return x;
+    }
+    function slide(x) {
+      /*resize the image:*/
+      img.style.width = x + "px";
+      /*position the slider:*/
+      slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+    }
+  }
+}
+</script>
+
+<div class="img-comp-container">
+  <div class="img-comp-img">
+    <img src="images/story1%20-%20Copy.jpg" width="249" height="500">
+  </div>
+  <div class="img-comp-img img-comp-overlay">
+    <img src="images/story1.jpg" width="249" height="500">
+  </div>
+</div>
+
+<script>
+/*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+initComparisons();
+</script>
+    
+    <div class="box wow slideInRight">
+<h1> Jenny's <span>Transformation</span> Story</h1>
+    <p>Jenny spent most of her life overweight. She was obese as a child, and by the time she was 25, Jenny weighed in at 376 lbs.
+<br>
+        <b>“Every choice I made regarding what I fueled my body with and how much exercised I did was all up to me,” </b>she says. <br><b>“I had no one else to blame for my poor decisions that led me to being nearly 400 lbs.”</b><br><br>
+
+But that changed on April 2, 2018, when Jenny decided to sign up for our Fitness program.<br>Over 15 weeks, she dropped 100 lbs. thanks to a personal trainer, nutrition coaching and regular bootcamp classes.
+   <br> But the hardest part, she says, is when that ended and she had to do it on her own.
+
+       <br> <b>“I had to understand that this was no longer a diet, and that it had to become my lifestyle,”</b> she says.<br>
+
+Jenny kept up her daily workouts and nutrition plan, and by January, just 10 months later, she was down to 175 lbs. <br>She’s maintained that now, with a few pounds of buffer, for the last year with the help of our proffesionals. 
+
+     <br>   <b>“My weight-loss journey came at a point in my life where my weight was something I faced every day and led me to a constant state of depression,” </b>she says.<br><b>“Through the struggle I encountered during my journey, I came to realize that the most difficult road had led to the most beautiful journey of my life.”</b></p>
+        <hr>
+        <br><br>
+        <div class="download">
+            <br><p> <b>Got motivated by Jenny's transformation? Download and follow her <a title="Download" href="Zip%20Files/Diet1.zip" download>Diet Plan</a> concieved by our nutritionist!</b> </p>
+
+        <br><br>
+        </div>
+    </div>
+       <footer>
+        <div class="container">
+            <div class="ftr">
+                <h3>About</h3>
+                <ul class="content">
+                    <li><a href="B.About.html">About</a></li>
+                    <li><a href="C.Services.html">Services</a></li>
+                    <li><a href="D.Classes.html">Classes</a></li>
+                      <li><a href="G.Prices.html">Price</a></li>
+                    <li><a href="H.Contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="ftr">
+                <h3>Contact</h3>
+                <ul class="content">
+                    <li><a href="mailto:FITera@hotmail.com">FITera@hotmail.com</a></li>
+                    <li><a href="#">+961 71007014</a></li>
+                    <li><a href="#">FiTera, Hara Street, Beit Mery</a></li>
+                </ul>
+            </div>
+            <div class="ftr">
+                <h3>Social</h3>
+                <ul class="content">
+                    <li><a href="https://www.facebook.com/FITera/?rc=p">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/fitera__/">Instagram</a></li>
+                    <li><a href="https://twitter.com/fitera">Twitter</a></li>
+                    <li><a href="https://www.youtube.com/channel/UC7hnC0GGE7xTD_Lq3DjMz7w">Youtube</a></li>
+                </ul>
+            </div>
+            <div class="ftr">
+                <h3>Join Our Newsletter</h3>
+                <form action="#">
+                    <input type="email" placeholder="Enter Your Email." required>
+                    <div class="btn">
+                        <input type="submit" value="Subscribe">
+                    </div>
+                </form>
+                  <div class="copy">
+                      Created by MT | &copy; All rights reserved.
+                  </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+    <style>
+    
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Open Sans";
+}
+main{
+    height: 70vh;
+}
+
+footer{
+    background: #000000;
+    padding: 20px 20px;
+    margin-top: 49px;
+}
+footer .container{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer .ftr h3{
+    font-size: 1.4em;
+    margin-bottom: 1.2em;
+    color: #ff6700;
+}
+    
+
+footer .content a{
+    text-decoration: none;
+    color: #fff;
+    opacity: .6;
+    line-height: 30px;
+    transition: .3s ease opacity;
+}
+footer .content a:hover{
+    opacity: 1;
+}
+footer .ftr{
+    flex-basis: 18%;
+}
+form{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+input{
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin: 5px 0;
+    background: #f5f5f5;
+}
+.btn input{
+    background: #ff6700;
+    color: #fff;
+    transition: .3s ease background;
+}
+.btn input:hover{
+    background: #000;
+}
+ .copy{
+	border-top:1px solid #333333;
+	margin-top: 30px;
+	padding-top: 20px;
+	color:#c5c5c5;
+	font-size: 15px;
+}
+        .copy:hover{
+            color: #ff6700;
+        }
+        
+@media only screen and (max-width: 540px){
+    footer .ftr{
+        flex-basis: 80%;
+        margin: 0 auto;
+    }
+    form{
+        flex-direction: column;
+    }
+    form input{
+        width: 90%;
+        margin: 5px auto;
+    }
+} 
+    
+    </style>
+
+
+
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+
+      $(".ham-burger, .nav ul li a").click(function(){
+       
+        $(".nav").toggleClass("open")
+
+        $(".ham-burger").toggleClass("active");
+      })      
+      $(".accordian-container").click(function(){
+      	$(".accordian-container").children(".body").slideUp();
+      	$(".accordian-container").removeClass("active")
+      	$(".accordian-container").children(".head").children("span").removeClass("fa-angle-down").addClass("fa-angle-up")
+      	$(this).children(".body").slideDown();
+      	$(this).addClass("active")
+      	$(this).children(".head").children("span").removeClass("fa-angle-up").addClass("fa-angle-down")
+      })
+
+       $(".nav ul li a, .go-down").click(function(event){
+         if(this.hash !== ""){
+
+              event.preventDefault();
+
+              var hash=this.hash; 
+
+              $('html,body').animate({
+                scrollTop:$(hash).offset().top
+              },800 , function(){
+                 window.location.hash=hash;
+              });
+
+              // add active class in navigation
+              $(".nav ul li a").removeClass("active")
+              $(this).addClass("active")
+         }
+      })
+})
+
+</script>
+<script src="js/wow.min.js"></script>
+<script>
+    wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       0,
+      }
+    );
+    wow.init();
+  </script>
+  
+</html>
+
+<!-- Marie Therese Bou Gebrael 201910477 -->
+

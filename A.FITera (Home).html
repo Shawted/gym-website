@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FITera Gym</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    
+  <style>
+    .wow:first-child {
+      visibility: hidden;
+    }
+  </style>
+
+</head>
+<body>
+ 
+ <!-- Start Header  -->
+ <header>
+ 	 <div class="container">
+ 	 	<div class="logo">
+
+ 	 		  <a href="">FiT<span>era</span></a>
+ 	 	</div>
+         
+
+         
+ 	 	<a href="javascript:void(0)" class="ham-burger">
+ 	       <span></span>	
+ 	       <span></span>
+ 	 	</a>
+ 	 	<div class="nav">
+ 	 		<ul>
+ 	 			<li><a href="A.FITera%20(Home).html">Home</a></li>
+ 	 			<li><a href="B.About.html">About</a></li>
+ 	 			<li><a href="C.Services.html">Services</a></li>
+ 	 			<li><a href="D.Classes.html">Classes</a></li>
+                <li><a href="E.Transformations.html">Transformation</a></li>
+                <li><a href="F.Store.html">Store</a></li>
+ 	 			<li><a href="G.Prices.html">Price</a></li>
+ 	 			<li><a href="H.Contact.html">Contact</a></li>
+ 	 		</ul>
+ 	 	</div>
+ 	 </div>
+     
+ </header>
+ <!-- End Header  -->
+ 
+  <!-- Start Home -->
+  <section class="home wow flash" id="home">
+  	 <div class="container">
+  	 	  <h1 class="wow slideInLeft" data-wow-delay="1s"> seven days of no <span>workout</span>,</h1>
+  	 	  <h1 class="wow slideInRight" data-wow-delay="1s">Makes one <span>weak</span>.</h1>
+      </div>
+<a href="B.About.html" class="go-down" title="Start">
+  	      	  <i class="fa fa-angle-down" aria-hidden="true"></i>
+  	      </a>
+  </section>
+  <!-- End Home -->
+
+ <!-- jquery -->
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+
+      $(".ham-burger, .nav ul li a").click(function(){
+       
+        $(".nav").toggleClass("open")
+
+        $(".ham-burger").toggleClass("active");
+      })      
+      $(".accordian-container").click(function(){
+      	$(".accordian-container").children(".body").slideUp();
+      	$(".accordian-container").removeClass("active")
+      	$(".accordian-container").children(".head").children("span").removeClass("fa-angle-down").addClass("fa-angle-up")
+      	$(this).children(".body").slideDown();
+      	$(this).addClass("active")
+      	$(this).children(".head").children("span").removeClass("fa-angle-up").addClass("fa-angle-down")
+      })
+
+       $(".nav ul li a, .go-down").click(function(event){
+         if(this.hash !== ""){
+
+              event.preventDefault();
+
+              var hash=this.hash; 
+
+              $('html,body').animate({
+                scrollTop:$(hash).offset().top
+              },800 , function(){
+                 window.location.hash=hash;
+              });
+
+              // add active class in navigation
+              $(".nav ul li a").removeClass("active")
+              $(this).addClass("active")
+         }
+      })
+})
+
+</script>
+<script src="js/wow.min.js"></script>
+<script>
+    wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       0,
+      }
+    );
+    wow.init();
+  </script>
+</body>
+</html>
+
+
+<! -- Marie Therese Bou Gebrael 201910477 -->
+
+
+
+
