@@ -1,7 +1,8 @@
 Options +FollowSymLinks -MultiViews
 # Turn mod_rewrite on
 RewriteEngine On
-RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 #Alternate default index page
 DirectoryIndex A.FITera (Home).html
